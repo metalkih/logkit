@@ -18,7 +18,7 @@
 import Foundation
 #if os(iOS) || os(tvOS)
 import UIKit
-import AdSupport
+//import AdSupport
 #elseif os(watchOS)
 import WatchKit
 #endif
@@ -152,8 +152,8 @@ internal let LK_DEVICE_IDS: (vendor: String, advertising: String) = {
     #if LogKitAdvertisingIDDisabled
         let advertisingID = ""
     #else
-        let adManager = ASIdentifierManager.shared()
-        let advertisingID = (adManager?.isAdvertisingTrackingEnabled)! ? adManager?.advertisingIdentifier.uuidString : ""
+//        let adManager = ASIdentifierManager.shared()
+        let advertisingID = "" // (adManager?.isAdvertisingTrackingEnabled)! ? adManager?.advertisingIdentifier.uuidString : ""
     #endif
     return (vendorID, advertisingID)
 #else
