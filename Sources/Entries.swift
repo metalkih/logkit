@@ -49,7 +49,7 @@ public struct LXLogEntry {
     /// The message provided during the logging call.
     public let message: String
     /// A dictionary of additional values to be provided to each Endpoint's `entryFormatter`.
-    public let userInfo: [String: AnyObject]
+    public let userInfo: [String: Any]
     /// The name of the Entry's Priority Level.
     public let level: String
     /// The number of seconds since the Unix epoch (midnight 1970-01-01 UTC).
@@ -101,7 +101,7 @@ public struct LXLogEntry {
 internal extension LXLogEntry {
 
     /// Returns the Log Entry as a dictionary.
-    internal func asMap() -> [String: AnyObject] {
+    internal func asMap() -> [String: Any] {
         return [
             "logKitVersion": self.logKitVersion,
             "message": self.message,
