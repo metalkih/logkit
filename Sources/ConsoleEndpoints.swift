@@ -113,7 +113,8 @@ private class LXAsynchronousConsoleWriter: LXConsoleWriter {
     fileprivate func writeData(_ data: Data) {
         data.withUnsafeBytes { (body: UnsafePointer<UInt8>) in
             let dataBuffer = UnsafeBufferPointer(start: body, count: data.count)
-            let dispatchData = DispatchData(bytes: dataBuffer)
+            let raw = UnsafeRawBufferPointer(dataBuffer)
+            let dispatchData = DispatchData(bytes: raw)
             DispatchIO.write(toFileDescriptor: STDERR_FILENO, data: dispatchData, runningHandlerOn: LK_LOGKIT_QUEUE, handler: { _, _ in })
         }
     }
